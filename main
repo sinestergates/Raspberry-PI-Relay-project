@@ -1,0 +1,100 @@
+Программа создающая Графический интерфейс и работающая с блоком реле.
+Создана для работы в системах умного дома
+
+import RPi.GPIO as GPIO
+from tkinter import *
+import time
+
+GPIO.setmode(GPIO.BCM)
+def intall ():
+    try:
+        GPIO.setup(18,GPIO.OUT)
+        GPIO.output(18,GPIO.HIGH)
+        time.sleep(0.5)
+        GPIO.output(18,GPIO.LOW)
+        time.sleep(0.5)
+        
+        GPIO.setup(24,GPIO.OUT)
+        GPIO.output(24,GPIO.HIGH)
+        time.sleep(0.5)
+        GPIO.output(24,GPIO.LOW)
+        time.sleep(0.5)
+        
+        GPIO.setup(23,GPIO.OUT)
+        GPIO.output(23,GPIO.HIGH)
+        time.sleep(0.5)
+        GPIO.output(23,GPIO.LOW)
+        time.sleep(0.5)
+        
+        GPIO.setup(25,GPIO.OUT)
+        GPIO.output(25,GPIO.HIGH)
+        time.sleep(0.5)
+        GPIO.output(25,GPIO.LOW)
+        time.sleep(0.5)
+        
+    except KeyboardInterrupt:
+        GPIO.cleanup()
+    GPIO.cleanup(18)
+    GPIO.cleanup(24)
+    GPIO.cleanup(23)
+    GPIO.cleanup(25)
+def int3 ():
+    try:
+        GPIO.setup(24,GPIO.OUT)
+        GPIO.output(24,GPIO.HIGH)
+        time.sleep(3)
+        GPIO.output(24,GPIO.LOW)
+        time.sleep(3)
+        GPIO.setup(24,GPIO.IN)
+    except KeyboardInterrupt:
+        GPIO.cleanup()
+    GPIO.cleanup(24)
+
+def int2 ():
+    try:
+        GPIO.setup(23,GPIO.OUT)
+        GPIO.output(23,GPIO.HIGH)
+        time.sleep(3)
+        GPIO.output(23,GPIO.LOW)
+        time.sleep(3)
+        GPIO.setup(23,GPIO.IN)
+    except KeyboardInterrupt:
+        GPIO.cleanup()
+    
+
+def int1 ():
+    try:
+        GPIO.setup(25,GPIO.OUT)
+        GPIO.output(25,GPIO.HIGH)
+        time.sleep(3)
+        GPIO.output(25,GPIO.LOW)
+        time.sleep(3)
+        GPIO.setup(25,GPIO.IN)
+    except KeyboardInterrupt:
+        GPIO.cleanup()
+    GPIO.cleanup(25)
+   
+
+def int4 ():
+    try:
+        GPIO.setup(18,GPIO.OUT)
+        GPIO.output(18,GPIO.HIGH)
+        time.sleep(3)
+        GPIO.output(18,GPIO.LOW)
+        time.sleep(3)
+        GPIO.setup(18,GPIO.IN)
+    except KeyboardInterrupt:
+        GPIO.cleanup()
+    GPIO.cleanup(18)   
+root=Tk()
+But1=Button(text="int1",command=int1)
+But1.pack()
+But2=Button(text="int2",command=int2)
+But2.pack()
+But3=Button(text="int3",command=int3)
+But3.pack()
+But=Button(text="int4",command=int4)
+But.pack()
+Butall=Button(text="int\nall",command=intall)
+Butall.pack()
+root.mainloop()
