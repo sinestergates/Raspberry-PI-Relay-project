@@ -1,0 +1,61 @@
+Без графического интерфейса, под работу из сканера 2D
+
+
+import RPi.GPIO as GPIO
+from tkinter import *
+import time
+
+
+GPIO.setmode(GPIO.BCM)
+
+class inter:
+    def __init__ (self,pins):
+        
+        self.pins=pins
+        try:
+            GPIO.setup(pins,GPIO.OUT)
+            GPIO.output(pins,GPIO.HIGH)
+            time.sleep(3)
+            GPIO.output(pins,GPIO.LOW)
+            time.sleep(3)
+            
+        except KeyboardInterrupt:
+            GPIO.cleanup()
+        GPIO.cleanup(pins)
+def int1():        
+    inter(25)
+def int2():        
+    inter(23)
+def int3():        
+    inter(24)
+def int4():        
+    inter(18)
+def int5():
+    inter(4)
+def int6():        
+    inter(17)
+def int7():        
+    inter(27)
+def int8():
+    inter(22)
+   
+b=True
+while b:
+    a=input()
+    array={"1":(int1),
+           "2":(int2),
+           "3":(int3),
+           "4":(int4),
+           "5":(int5),
+           "6":(int6),
+           "7":(int7),
+           "8":(int8),
+         } 
+    array[a]()
+        
+            
+            
+               
+    
+        
+    
