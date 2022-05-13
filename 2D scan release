@@ -22,34 +22,18 @@ class inter:
         except KeyboardInterrupt:
             GPIO.cleanup()
         GPIO.cleanup(pins)
-def int1():        
-    inter(25)
-def int2():        
-    inter(23)
-def int3():        
-    inter(24)
-def int4():        
-    inter(18)
-def int5():
-    inter(4)
-def int6():        
-    inter(17)
-def int7():        
-    inter(27)
-def int8():
-    inter(22)
-   
+
 b=True
 while b:
     a=input()
-    array={"1":(int1),
-           "2":(int2),
-           "3":(int3),
-           "4":(int4),
-           "5":(int5),
-           "6":(int6),
-           "7":(int7),
-           "8":(int8),
+    array={"1":(inter(25)),
+           "2":(inter(23)),
+           "3":(inter(24)),
+           "4":(inter(18)),
+           "5":(inter(4)),
+           "6":(inter(17)),
+           "7":(inter(27)),
+           "8":(inter(22)),
          } 
     array[a]()
         
