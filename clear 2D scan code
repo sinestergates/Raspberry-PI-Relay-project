@@ -1,0 +1,37 @@
+import RPi.GPIO as GPIO
+import time
+import tkinter as tk
+
+GPIO.setmode(GPIO.BCM)
+
+class inter:
+    def __init__ (self,pins):
+        
+        self.pins=pins
+        try:
+            GPIO.setup(pins,GPIO.OUT)
+            GPIO.output(pins,GPIO.HIGH)
+            time.sleep(3)
+            GPIO.output(pins,GPIO.LOW)
+            time.sleep(3)
+            GPIO.setup(pins,GPIO.IN)
+        except KeyboardInterrupt:
+            GPIO.cleanup()
+        GPIO.cleanup(pins)        
+
+pinset=(25, 23, 24, 18, 4, 17, 27, 22)
+b=True
+
+def v(pinnum):
+    b=True
+    while b:
+        pinnum=int(input())
+        if int(pinnum) >=0 and pinnum <=8:
+            
+            inter(pinset[pinnum-1])
+        if int(pinnum) <=0 or pinnum >=8:
+            print ("code not found")
+            
+v(2)
+
+
